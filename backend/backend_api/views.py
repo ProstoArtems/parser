@@ -10,24 +10,10 @@ import sys
 import requests
 import sqlite3
 
-@csrf_exempt
-def search_view(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        search_text = data.get('searchText', '')
-        # Здесь вы можете выполнить необходимую обработку данных и вернуть ответ
-        # Например, выполнить поиск по тексту и вернуть результат
-        
-        response_data = {
-            'message': 'Данные успешно получены и обработаны',
-            'search_text': search_text
-        }
-        
-        return JsonResponse(response_data)
 
 from .models import Vacancy
 
-def parse_vacancies(request):
+def parse_vacancies(request):   #Парсинг вакансий и сохранение их в базу данных "Vacancy"
     
     base_url = 'https://api.hh.ru/vacancies'
     text_param = request.GET.get('text', '')
@@ -43,12 +29,10 @@ def parse_vacancies(request):
             'page': page,
             "currency": "RUR"
         }
-
         response = requests.get(base_url, params=params)
         vacancies = response.json()['items']
 
         for vacancy in vacancies:
-
             salary = vacancy.get('salary', {})
             salary_min = salary.get('from') if salary else None
             salary_max = salary.get('to') if salary else None

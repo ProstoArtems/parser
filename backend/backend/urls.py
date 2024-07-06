@@ -18,11 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.urls import re_path as url
 from backend_api.views import *
-from backend_api.views import search_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('search/', search_view, name='search_view'),
     path('parse/', parse_vacancies, name='parse_vacancies'),
     path('vacancies/', get_all_vacancies, name='get_all_vacancies'),
 ]
