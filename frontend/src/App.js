@@ -9,8 +9,6 @@ function ParsePage() {
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-
-
     const handleParse = () => {
         setIsModalOpen(true);
         const queryString = new URLSearchParams(params).toString();
@@ -30,10 +28,9 @@ function ParsePage() {
                 console.error('Error fetching data:', error);
                 setError(error.message);
             });
-
     };
 
-
+    /*Функция, обновляющая параметры поиска*/
     const handleChange = (e) => {
         const { name, value } = e.target;
         setParams((prevParams) => ({

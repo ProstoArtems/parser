@@ -10,7 +10,7 @@ function VacanciesPage() {
         graf:'',
     });
 
-
+    /*Загрузка вакансий с сервера:*/ 
     useEffect(() => {
 
         fetch('http://localhost:8000/vacancies/')
@@ -28,7 +28,7 @@ function VacanciesPage() {
                 setError(error.message);
             });
     }, []);
-
+    /*Обработка изменения фильтров:*/ 
     const handleFilterChange = (e) => {
         const { name, value } = e.target;
         setFilters((prevFilters) => ({
@@ -36,7 +36,7 @@ function VacanciesPage() {
             [name]: value,
         }));
     };
-
+    /*Фильтрация вакансий:*/ 
     const filteredVacancies = vacancies.filter(vacancy => {
         return (
             (filters.city === '' || vacancy.city.toLowerCase().includes(filters.city.toLowerCase())) &&
