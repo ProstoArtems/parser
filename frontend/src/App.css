@@ -1,0 +1,62 @@
+.App-header{
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+}
+html, body{
+  background: rgba(166, 212, 193, 1);
+  font-size: 18px;
+}
+.frame1-container {
+  display: flex;
+}
+
+.frame1-rectangle13 {
+  width: 735px;
+  height: 82px;
+  border-radius: 30px;
+  outline: none;
+  background-color: #D9D9D9;
+  text-indent: 100px;
+  caret-color: #3E5240;
+  color: #3E5240;
+  font-size: 25px;
+  border: 0;
+
+}
+.frame1-frame1{
+  margin: 100px 0 0 100px;
+  align-items: center;
+  display: flex;
+}
+.frame1-rectangle13::placeholder{
+  color: #888D88;
+  position: absolute;
+  left: 10px;
+  top: 26px;
+  font-size: 30px;
+  transition: .3s;
+}
+.frame1-rectangle13:focus::placeholder{
+  opacity: 0;
+}
+.button1{
+  background-color: #D9D9D9;
+  width: 100px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 10px;
+  border: 0;
+  transition: .3s;
+}
+.button1:hover{
+  background-color: #f2f2f2;
+}
+.lupa{
+  top: 438px;
+  left: 655px;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+}
